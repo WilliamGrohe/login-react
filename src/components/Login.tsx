@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./Login.scss";
+import "../styles/login.scss";
 
 function Login() {
   const [emailValue, setEmailValue] = useState("");
@@ -9,7 +9,8 @@ function Login() {
   function handleLogin(e: string, p: string) {
     if (e === "" || p === "") {
       alert("Preencha os campos de Login e Senha!");
-    }
+    } 
+
     console.log(`Recebido email: ${e}, senha ${p}`);
   }
 
