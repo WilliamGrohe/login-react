@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 
 type User = {
   name: string;
@@ -6,7 +6,7 @@ type User = {
 
 type AuthContextType = {
   user: User | undefined;
-  newUser: (n: string) => void;
+  newUser: (username: string) => void;
 }
 
 type AuthContextProviderProps = {
@@ -18,17 +18,9 @@ export const AuthContext = createContext({} as AuthContextType)
 export function AuthContextProvider(props: AuthContextProviderProps) {
   const [user, setUser] = useState<User>();
 
-  const username = props.children?.toString
-
-  useEffect(()=>{
+  function newUser(username: string){
     setUser({
-      name: 'sdsds'
-    })
-  }, [])
-
-  function newUser(n: string){
-    setUser({
-      name: n
+      name: username
     })
   }
 

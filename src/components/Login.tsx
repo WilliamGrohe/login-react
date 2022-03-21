@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {useAuth} from "../hooks/useAuth"
@@ -6,12 +6,12 @@ import {useAuth} from "../hooks/useAuth"
 import "../styles/login.scss";
 
 export function Login() {
-  const [emailValue, setEmailValue] = useState("");
+  const [usernameValue, setUsernameValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   
   let navigate = useNavigate();
 
-  const { user, newUser } = useAuth();
+  const { newUser } = useAuth();
 
 
   function handleLogin(e: string, p: string) {
@@ -30,14 +30,16 @@ export function Login() {
     <div className="main">
       <div className="card">
         <h2>LOGIN</h2>
+
+        <input type="text" name="" id="" />
         <input
-          type="email"
-          name="Email"
-          id="email"
-          alt="Insira seu e-mail"
-          placeholder="Seu e-mail"
-          value={emailValue}
-          onChange={(v) => setEmailValue(v.target.value)}
+          type="text"
+          name="Nome"
+          id="name"
+          alt="Insira seu nome"
+          placeholder="Username do seu github"
+          value={usernameValue}
+          onChange={(v) => setUsernameValue(v.target.value)}
         />
         <input
           type="password"
@@ -47,7 +49,7 @@ export function Login() {
           value={passwordValue}
           onChange={(v) => setPasswordValue(v.target.value)}
         />
-        <button onClick={() => handleLogin(emailValue, passwordValue)}>
+        <button onClick={() => handleLogin(usernameValue, passwordValue)}>
           ENTRAR
         </button>
       </div>
