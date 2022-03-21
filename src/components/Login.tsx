@@ -17,21 +17,18 @@ export function Login() {
   function handleLogin(e: string, p: string) {
     if (e === "" || p === "") {
       alert("Preencha os campos de Login e Senha!");
+      return
     } 
-    if ( e !== '' && p === '1') {
+    if (p === 'entrar') {
       newUser(e);
       navigate('/logedin');
     }
 
-    console.log(`Recebido email: ${e}, senha ${p}`);
   }
 
   return (
-    <div className="main">
       <div className="card">
         <h2>LOGIN</h2>
-
-        <input type="text" name="" id="" />
         <input
           type="text"
           name="Nome"
@@ -45,7 +42,7 @@ export function Login() {
           type="password"
           name="Password"
           id="password"
-          placeholder="Sua senha"
+          placeholder="Senha: entrar"
           value={passwordValue}
           onChange={(v) => setPasswordValue(v.target.value)}
         />
@@ -53,7 +50,6 @@ export function Login() {
           ENTRAR
         </button>
       </div>
-    </div>
   );
 }
 
