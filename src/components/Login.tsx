@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import {useAuth} from "../hooks/useAuth"
+
 import "../styles/login.scss";
 
 export function Login() {
@@ -9,13 +11,16 @@ export function Login() {
   
   let navigate = useNavigate();
 
+  const { user, newUser } = useAuth();
+
 
   function handleLogin(e: string, p: string) {
     if (e === "" || p === "") {
       alert("Preencha os campos de Login e Senha!");
     } 
-    if ( e === 'a' && p === '1') {
-      navigate('/logedin')
+    if ( e !== '' && p === '1') {
+      newUser(e);
+      navigate('/logedin');
     }
 
     console.log(`Recebido email: ${e}, senha ${p}`);
