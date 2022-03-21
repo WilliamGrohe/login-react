@@ -1,5 +1,9 @@
-import React from 'React'
+import React from 'react'
 
-export function logedin() {
-  return <h1>Você está logado</h1>
+export function Logedin() {
+  return (
+  <div className="foo">
+    <h1>ENtrou</h1>
+  </div>
+  )
 }
